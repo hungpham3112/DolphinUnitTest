@@ -3,24 +3,6 @@
 #include <chrono>
 #include <iostream>
 
-// ==========================================
-// 1. CÁC IMPLEMENTATION (CÁC LOẠI PHÍCH CẮM)
-// ==========================================
-
-// A. Real Clock (Hàng thật - Production)
-// Chạy dựa trên đồng hồ hệ thống
-class RealClock : public IClock {
-public:
-  uint32_t get_time() const override {
-    using namespace std::chrono;
-    auto now = system_clock::now();
-    auto duration = now.time_since_epoch();
-    return static_cast<uint32_t>(duration_cast<milliseconds>(duration).count());
-  }
-};
-
-// B. Mock Clock (Hàng giả - Testing)
-// Chạy dựa trên biến số ta tự chỉnh
 class MockClock : public IClock {
   uint32_t fake_time_ = 0;
 

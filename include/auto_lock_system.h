@@ -16,6 +16,9 @@ public:
   }
 };
 
+// -------------------------------------------------------
+// [BAD] TIGHT COUPLING (HÀN CHẾT)
+// -------------------------------------------------------
 class BadAutoLockSystem {
 public:
   // VẤN ĐỀ 2: Constructor tự khởi tạo dependency bên trong.
@@ -48,6 +51,9 @@ private:
   RealClock clock;
 };
 
+// -------------------------------------------------------
+// [GOOD] DEPENDENCY INJECTION (LẮP GHÉP)
+// -------------------------------------------------------
 class AutoLockSystem {
 public:
   explicit AutoLockSystem(IClock &clock);
