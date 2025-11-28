@@ -28,14 +28,19 @@ target_link_libraries(test_fixture_lifecycle
 
 add_executable(test_auto_lock_system
     test_auto_lock_system.cpp
-    # Bạn có thể thêm các file test khác vào đây, ví dụ:
-    # test_sample.cpp
-    # test_mock_sensor.cpp
 )
 
 target_link_libraries(test_auto_lock_system
     GTest::gmock_main
     lock_system
+)
+
+add_executable(test_five_doubles
+    test_five_doubles.cpp
+)
+
+target_link_libraries(test_five_doubles
+    GTest::gmock_main
 )
 
 include(GoogleTest)
@@ -45,3 +50,4 @@ gtest_discover_tests(test_mock_sensor)
 gtest_discover_tests(test_fixture)
 gtest_discover_tests(test_fixture_lifecycle)
 gtest_discover_tests(test_auto_lock_system)
+gtest_discover_tests(test_five_doubles)
